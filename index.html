@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EntryWise Privacy Policy</title>
+<meta name="description" content="How the EntryWise browser extension handles your data: everything stays on your computer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;600&family=Sora:wght@600&display=swap">
+<style>
+  /* Layout: one readable column, a summary ledger up top, then numbered policy sections like a terminal printout. */
+  :root {
+    --bg: #f6f8f9;
+    --surface: #ffffff;
+    --ink: #14232b;
+    --muted: #51636c;
+    --rule: #d5dee2;
+    --accent: #0b6e74;
+    --accent-soft: #e3f1f1;
+    --ok: #1d7a46;
+    --font-display: 'Sora', 'Segoe UI', system-ui, sans-serif;
+    --font-body: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f171b; --surface: #16222833; --ink: #e4ecef; --muted: #9db0b8; --rule: #2a3a41;
+      --accent: #5cc4c9; --accent-soft: #163338; --ok: #6fcf97; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f171b; --surface: #16222833; --ink: #e4ecef; --muted: #9db0b8; --rule: #2a3a41;
+    --accent: #5cc4c9; --accent-soft: #163338; --ok: #6fcf97; color-scheme: dark;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 1rem/1.65 var(--font-body);
+  }
+  .page {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding-block: 3rem 4rem;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    display: grid;
+    gap: 2.5rem;
+  }
+  header { display: grid; gap: 0.75rem; }
+  .brand {
+    font: 500 0.8rem/1 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font: 600 clamp(1.9rem, 5vw, 2.6rem)/1.15 var(--font-display);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .meta { color: var(--muted); margin: 0; font-size: 0.95rem; }
+  .lede { font-size: 1.15rem; margin: 0; max-width: 38rem; }
+  .lede strong { color: var(--accent); font-weight: 600; }
+
+  .ledger {
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: var(--surface);
+    overflow-x: auto;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+  caption {
+    text-align: left;
+    padding: 0.9rem 1rem 0.4rem;
+    font: 600 0.8rem/1.3 var(--font-body);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  th, td { text-align: left; vertical-align: top; padding: 0.7rem 1rem; border-top: 1px solid var(--rule); }
+  th { font-weight: 600; }
+  thead th { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
+  td.where { white-space: nowrap; }
+  .tag {
+    display: inline-block;
+    font: 500 0.75rem/1.6 var(--font-mono);
+    padding: 0 0.45rem;
+    border-radius: 3px;
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  section { display: grid; gap: 0.6rem; }
+  h2 {
+    font: 600 1.2rem/1.3 var(--font-display);
+    margin: 0;
+    display: flex;
+    gap: 0.75rem;
+    align-items: baseline;
+    text-wrap: balance;
+  }
+  h2 .n { font: 500 0.85rem/1 var(--font-mono); color: var(--accent); min-width: 1.6rem; }
+  p, ul { margin: 0; }
+  ul { padding-left: 1.2rem; display: grid; gap: 0.35rem; }
+  code {
+    font: 500 0.88em/1 var(--font-mono);
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+  }
+  .never li::marker { content: '✕  '; color: var(--ok); font-weight: 600; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  footer { border-top: 1px solid var(--rule); padding-top: 1.25rem; color: var(--muted); font-size: 0.9rem; }
+</style>
+
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}</style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <span class="brand">EntryWise · browser extension</span>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Effective 27 November 2026 · Applies to EntryWise version 0.1.0 and later</p>
+    <p class="lede">EntryWise helps travel agents prepare Amadeus cryptic entries. <strong>Everything you type into EntryWise stays on your computer.</strong> EntryWise has no servers, no accounts and no analytics, and it never sends anything over the internet.</p>
+  </header>
+
+  <div class="ledger">
+    <table>
+      <caption>What EntryWise handles, and where it stays</caption>
+      <thead>
+        <tr><th scope="col">Data</th><th scope="col">Where it is kept</th><th scope="col">How long</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">What you type to prepare an entry: requests, passenger names and titles, phone numbers, email addresses, remarks, booking codes, dates, cities</th>
+          <td class="where"><span class="tag">this computer</span></td>
+          <td>While the entry is on screen. Recent prepared entries are kept in memory until you close the browser.</td>
+        </tr>
+        <tr>
+          <th scope="row">Booking tracker (for example "a booking is open", the number of unsaved changes)</th>
+          <td class="where"><span class="tag">browser memory</span></td>
+          <td>Until you close the browser, or choose Reset tracking.</td>
+        </tr>
+        <tr>
+          <th scope="row">Your settings: language, environment, safety level, office country and currency, date format, display choices</th>
+          <td class="where"><span class="tag">this computer</span></td>
+          <td>Until you reset your settings or remove EntryWise.</td>
+        </tr>
+        <tr>
+          <th scope="row">The entry you copy</th>
+          <td class="where"><span class="tag">your clipboard</span></td>
+          <td>Until you copy something else. EntryWise writes to the clipboard only when you click Copy and never reads it.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <section>
+    <h2><span class="n">01</span>How your information is used</h2>
+    <p>EntryWise uses what you type for one purpose only: to build the entry you asked for, explain it, check it for mistakes, and keep track of the booking you are working on. For example, the name and title you enter become an entry such as <code>NM1SMITH/JOHN MR</code>, which you copy and paste into your terminal yourself.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">02</span>What EntryWise never does</h2>
+    <ul class="never">
+      <li>It never sends your data anywhere. The extension contains no code that can connect to the internet, and automated tests check this on every version.</li>
+      <li>It never reads or changes web pages, including your Amadeus terminal. It has no permission to access any website.</li>
+      <li>It never sells, rents or shares your data, and never uses it for advertising, profiling or credit decisions.</li>
+      <li>It never uses cookies, trackers, analytics or advertising.</li>
+      <li>It never stores payment card numbers. Card numbers are detected and refused in free-text fields, and masked anywhere they appear.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">03</span>Browser permissions</h2>
+    <p>EntryWise asks your browser for two permissions only:</p>
+    <ul>
+      <li><strong>Storage</strong>: to keep your settings on this computer, and the booking tracker in memory.</li>
+      <li><strong>Side panel</strong>: to show EntryWise beside the page you are working on.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">04</span>Sharing your settings</h2>
+    <p>Settings → Export profile saves your settings to a file on your computer so your agency can use the same settings on other computers. The file contains settings only, never passenger or booking data. You decide whether to share it.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">05</span>Your choices and deleting your data</h2>
+    <ul>
+      <li>Close the browser to clear the booking tracker and recent entries.</li>
+      <li>Choose Settings → Reset all settings to delete your saved settings.</li>
+      <li>Remove the extension to delete everything EntryWise kept on this computer.</li>
+    </ul>
+    <p>Because EntryWise holds no data about you anywhere else, there is nothing for us to access, correct or delete on our side.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">06</span>Chrome Web Store user data policy</h2>
+    <p>The use of information by EntryWise complies with the Chrome Web Store User Data Policy, including its Limited Use requirements. The same commitments apply in Microsoft Edge Add-ons and Opera Add-ons.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">07</span>Children</h2>
+    <p>EntryWise is a professional tool for travel agents. It is not directed at children.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">08</span>Changes to this policy</h2>
+    <p>If a future version of EntryWise handles data differently, for example to check a paid licence, this policy will be updated before that version is released, and the effective date above will change.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">09</span>Contact</h2>
+    <p>For questions about this policy, use the support contact shown on the EntryWise page of the store where you installed it (Chrome Web Store, Microsoft Edge Add-ons or Opera Add-ons).</p>
+  </section>
+
+  <footer>
+    EntryWise is an independent product. It is not affiliated with, endorsed by or sponsored by Amadeus. Amadeus is a trademark of its owner.
+  </footer>
+</main>
+</body>
+</html>
